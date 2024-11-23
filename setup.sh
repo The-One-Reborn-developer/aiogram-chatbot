@@ -12,4 +12,6 @@ ollama serve
 echo "Creating a model from Modelfile..."
 ollama create aiogramhelper -f ./Modelfile
 
-echo "Installation completed."
+npm install -g pnpm
+
+echo "Setup completed."
