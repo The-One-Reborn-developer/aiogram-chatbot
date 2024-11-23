@@ -9,6 +9,7 @@ Local AI to chat with latest aiogram documentation.
 ## Dependencies
 
 - [ollama](https://github.com/ollama/ollama)
+- [Langflow](https://langflow.org/)
 
 ## Installation
 
