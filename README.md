@@ -23,5 +23,3 @@ Run: `./setup.sh`
 4. A model will be created from the Modelfile.
 
 ## Running
-
-Run: `./run.sh`
