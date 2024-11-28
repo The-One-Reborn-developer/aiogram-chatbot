@@ -1,15 +1,15 @@
-# Aiogram Chatbot
+# Crypto Pay API Chatbot
 
-Local AI to chat with latest aiogram documentation.
+Local AI to chat with latest Crypto Pay API documentation.
 
 ## Features
 
-- Chat with latest aiogram documentation.
+- Chat with latest Crypto Pay API documentation.
 
 ## Dependencies
 
 - [ollama](https://github.com/ollama/ollama)
-- [Flowise](https://flowiseai.com)
+- [langflow](https://www.langflow.org/)
 
 ## Installation
 
