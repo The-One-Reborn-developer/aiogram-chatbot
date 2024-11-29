@@ -1,30 +1,13 @@
 import os
 import shutil
 
-from langchain_community.document_loaders.pdf import PyPDFDirectoryLoader
 from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-
 from dotenv import load_dotenv, find_dotenv
 
-
-def load_documents(DATA_PATH):
-    loader = PyPDFDirectoryLoader(DATA_PATH)
-    documents = loader.load()
-
-    return documents
-
-
-def split_documents(documents):
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=150,
-        chunk_overlap=30,
-        length_function=len,
-        add_start_index=True
-    )
-    return text_splitter.split_documents(documents)
+from scripts.load_documents import load_documents
+from scripts.split_documents import split_documents
 
 
 def save_to_chroma(chunks, chroma_path):
