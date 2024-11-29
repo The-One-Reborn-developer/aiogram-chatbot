@@ -4,7 +4,6 @@ import argparse
 from dotenv import load_dotenv, find_dotenv
 
 from scripts.load_query_from_chroma import load_query_from_chroma
-from scripts.get_prompt_template import get_prompt_template
 from scripts.pass_prompt_template_to_model import pass_prompt_template_to_model
 
 
