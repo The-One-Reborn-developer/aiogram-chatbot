@@ -5,7 +5,7 @@ from langchain_chroma import Chroma
 
 from dotenv import load_dotenv, find_dotenv
 
-from scripts.get_embedding_function import get_embedding_function
+from app.scripts.get_embedding_function import get_embedding_function
 
 
 def load_query_from_chroma(chroma_path, query_text) -> list:

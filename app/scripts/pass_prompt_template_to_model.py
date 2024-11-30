@@ -1,7 +1,7 @@
 from langchain.prompts.chat import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 
-from scripts.get_prompt_template import get_prompt_template
+from app.scripts.get_prompt_template import get_prompt_template
 
 
 def pass_prompt_template_to_model(context_text, query_text, sources) -> str:

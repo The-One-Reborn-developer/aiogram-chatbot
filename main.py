@@ -3,8 +3,8 @@ import argparse
 
 from dotenv import load_dotenv, find_dotenv
 
-from scripts.load_query_from_chroma import load_query_from_chroma
-from scripts.pass_prompt_template_to_model import pass_prompt_template_to_model
+from app.scripts.load_query_from_chroma import load_query_from_chroma
+from app.scripts.pass_prompt_template_to_model import pass_prompt_template_to_model
 
 
 def main():
