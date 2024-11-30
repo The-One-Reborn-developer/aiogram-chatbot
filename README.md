@@ -1,6 +1,6 @@
 # Crypto Pay API Chatbot
 
-Local AI to chat with latest Crypto Pay API documentation.
+AI to chat with latest Crypto Pay API documentation through [Telegram bot](https://t.me/CryptoPayChatbot).
 
 ## Features
 
