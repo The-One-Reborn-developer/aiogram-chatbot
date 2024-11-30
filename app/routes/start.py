@@ -11,4 +11,4 @@ start_router = Router()
 async def start(message):
     content = start_command(message)
 
-    await message.answer(content)
+    await message.answer(content, parse_mode='HTML')
