@@ -2,25 +2,30 @@ import os
 import shutil
 
 from langchain_chroma import Chroma
-from langchain_ollama import OllamaEmbeddings
 
 from dotenv import load_dotenv, find_dotenv
 
-from scripts.load_documents import load_documents
-from scripts.split_documents import split_documents
+from load_documents import load_documents
+from split_documents import split_documents
+from get_embedding_function import get_embedding_function
 
 
-def save_to_chroma(chunks, chroma_path):
+def save_to_chroma(chunks, chroma_path) -> bool:
     if os.path.exists(chroma_path):
         shutil.rmtree(chroma_path)
 
-    db = Chroma.from_documents(
-        chunks,
-        OllamaEmbeddings(model="nomic-embed-text"),
-        persist_directory=chroma_path,
-    )
+    try:
+        Chroma.from_documents(
+            chunks,
+            embedding=get_embedding_function(),
+            persist_directory=chroma_path,
+        )
+    except Exception as e:
+        print(e)
+        return False
 
     print(f'Saved {len(chunks)} chunks to {chroma_path}')
+    return True
 
 
 if __name__ == "__main__":
@@ -30,7 +35,10 @@ if __name__ == "__main__":
     chunks = split_documents(documents)
     chroma_path = os.getenv("CHROMA_PATH")
     
-    try:
-        save_to_chroma(chunks, chroma_path)
-    except Exception as e:
-        print(e)
+    result = save_to_chroma(chunks, chroma_path)
+
+    if not result:
+        print('Failed to save to chroma')
+        exit(1)
+
+    exit(0)
