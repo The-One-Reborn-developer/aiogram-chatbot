@@ -18,9 +18,7 @@ async def message(message):
     response = model_response(message)
 
     logging.info(f'Deleting waiting message: {waiting_message.message_id}, chat: {message.chat.id}')
-    try:
-        await delete_message(message.chat.id, waiting_message.message_id)
-    except Exception as e:
-        logging.log(logging.ERROR, e)
+    deleted = await delete_message(message.chat.id, waiting_message.message_id)
+    logging.info(f'Deleted waiting message result: {deleted}')
 
     await message.answer(response, parse_mode='MARKDOWN')
