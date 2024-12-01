@@ -14,7 +14,7 @@ def load_query_from_chroma(chroma_path, query_text, threshold=0.5) -> list:
 
     result = db.similarity_search_with_relevance_scores(
         query_text,
-        k=3
+        k=5
     )
 
     if len(result) == 0 or result[0][1] < threshold:

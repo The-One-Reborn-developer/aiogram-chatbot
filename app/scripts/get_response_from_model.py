@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv, find_dotenv
 
 from app.scripts.load_query_from_chroma import load_query_from_chroma
-from app.scripts.pass_prompt_template_to_model import pass_prompt_template_to_model
+from app.scripts.pass_prompt_to_model import pass_prompt_to_model
 
 
 def get_response_from_model(message) -> str:
@@ -20,6 +20,10 @@ def get_response_from_model(message) -> str:
         document.metadata.get('source', None) for document, _score in result
     ]
 
-    model_response = pass_prompt_template_to_model(context_text, message, sources)
+    model_response = pass_prompt_to_model(
+        context_text,
+        message,
+        sources
+    )
 
     return model_response
